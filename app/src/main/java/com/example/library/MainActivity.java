@@ -2,6 +2,7 @@ package com.example.library;
 
 import android.media.Image;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     Spinner editorial;
     Switch savailable;
     ImageButton bSave, bSearch, bEdit, bList;
+    // Generar array con las opciones del spinner
+    String[] arrayEditorial = {"Oveja negra", "Prentice Hall"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,5 +42,8 @@ public class MainActivity extends AppCompatActivity {
         bSearch = findViewById(R.id.ibSearch);
         bEdit = findViewById(R.id.ibEdit);
         bList = findViewById(R.id.ibList);
+        // Poblar el spinner con Array y luego con el array adapter
+        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked, arrayEditorial);
+        editorial.setAdapter(arrayAdapter);
     }
 }
